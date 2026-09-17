@@ -64,15 +64,27 @@ export const AdminPage: React.FC = () => {
   const [statusNoteInput, setStatusNoteInput] = useState<string>('');
   const [updatingStatus, setUpdatingStatus] = useState<boolean>(false);
   const [statusSuccessMessage, setStatusSuccessMessage] = useState<string>('');
+  const [statusErrorMessage, setStatusErrorMessage] = useState<string>('');
 
   // Listen to Firebase Auth state
   useEffect(() => {
-    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
+    try {
+      const unsubscribeAuth = onAuthStateChanged(
+        auth, 
+        (user) => {
+          setCurrentUser(user);
+          setAuthLoading(false);
+        },
+        (authErr) => {
+          console.warn("Firebase auth listener error:", authErr);
+          setAuthLoading(false);
+        }
+      );
+      return () => unsubscribeAuth();
+    } catch (e) {
+      console.warn("Auth initialization error:", e);
       setAuthLoading(false);
-    });
-
-    return () => unsubscribeAuth();
+    }
   }, []);
 
   // Listen to real-time Firestore orders when authenticated
@@ -152,6 +164,7 @@ export const AdminPage: React.FC = () => {
     if (!selectedOrder) return;
     setUpdatingStatus(true);
     setStatusSuccessMessage('');
+    setStatusErrorMessage('');
 
     try {
       await updateOrderStatusInFirestore(
@@ -185,7 +198,7 @@ export const AdminPage: React.FC = () => {
 
       setTimeout(() => setStatusSuccessMessage(''), 4000);
     } catch (err: any) {
-      alert("Failed to update status in Firestore: " + (err.message || "Unknown error"));
+      setStatusErrorMessage("Failed to update status in Firestore: " + (err?.message || "Unknown error"));
     } finally {
       setUpdatingStatus(false);
     }
@@ -671,6 +684,14 @@ export const AdminPage: React.FC = () => {
               <div className="p-3 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-300 text-xs flex items-center gap-2 animate-in fade-in">
                 <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="font-bold">{statusSuccessMessage}</span>
+              </div>
+            )}
+
+            {/* Error toast inside modal */}
+            {statusErrorMessage && (
+              <div className="p-3 rounded-xl bg-red-950/80 border border-red-800 text-red-300 text-xs flex items-center gap-2 animate-in fade-in">
+                <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                <span className="font-bold">{statusErrorMessage}</span>
               </div>
             )}
 

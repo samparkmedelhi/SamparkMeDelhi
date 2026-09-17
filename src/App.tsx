@@ -42,17 +42,23 @@ function MainApp() {
   const [confirmedOrder, setConfirmedOrder] = useState<Order | null>(null);
   const [whatsappAdminUrl, setWhatsappAdminUrl] = useState<string>('');
 
-  // Fetch live products from backend API
+  // Fetch live products from backend API if available, else keep INITIAL_PRODUCTS
   useEffect(() => {
     fetch('/api/products')
-      .then(res => res.json())
+      .then(res => {
+        const contentType = res.headers.get('content-type') || '';
+        if (res.ok && contentType.includes('application/json')) {
+          return res.json();
+        }
+        return null;
+      })
       .then(data => {
-        if (data.success && Array.isArray(data.products) && data.products.length > 0) {
+        if (data && data.success && Array.isArray(data.products) && data.products.length > 0) {
           setProducts(data.products);
         }
       })
-      .catch(err => {
-        console.warn("Using fallback local products list", err);
+      .catch(() => {
+        // Silently use INITIAL_PRODUCTS on static CDN deployments
       });
   }, []);
 

@@ -24,21 +24,46 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(normalizePath(window.location.pathname));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+        if (typeof window !== 'undefined') {
+          setCurrentPath(normalizePath(window.location.pathname));
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } catch (err) {
+        console.warn("PopState handler warning:", err);
+      }
     };
 
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('popstate', handlePopState);
+      return () => window.removeEventListener('popstate', handlePopState);
+    }
   }, []);
 
   const navigate = (path: string) => {
     const target = normalizePath(path);
     if (target !== currentPath) {
-      window.history.pushState({}, '', target);
+      if (typeof window !== 'undefined') {
+        try {
+          window.history.pushState({}, '', target);
+        } catch (err) {
+          // In sandboxed iframes or cross-origin documents, pushState may be restricted
+          console.warn("History pushState restricted in current iframe sandbox:", err);
+        }
+      }
       setCurrentPath(target);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch {
+        try {
+          window.scrollTo(0, 0);
+        } catch {
+          // ignore
+        }
+      }
+    }
   };
 
   return (

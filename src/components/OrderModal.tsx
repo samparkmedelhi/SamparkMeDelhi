@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Product, Order, OrderInput } from '../types';
 import { BUSINESS_CONFIG } from '../config/businessConfig';
-import { saveOrderToFirestore } from '../lib/firebase';
+import { submitCustomerOrder } from '../lib/orderService';
 import { 
   X, 
   Check, 
@@ -118,23 +118,11 @@ export const OrderModal: React.FC<OrderModalProps> = ({
         customerNote: customerNote.trim() || undefined
       };
 
-      const response = await fetch('/api/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderPayload)
-      });
-
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || "Failed to submit order.");
-      }
-
       // Save actual order to Firestore database before showing order success
-      await saveOrderToFirestore(data.order);
+      const result = await submitCustomerOrder(orderPayload);
 
       // Success
-      onOrderSuccess(data.order, data.whatsappAdminUrl);
+      onOrderSuccess(result.order, result.whatsappAdminUrl);
     } catch (err: any) {
       setErrorMessage(err.message || "Failed to save order. Please check your connection and try again.");
     } finally {

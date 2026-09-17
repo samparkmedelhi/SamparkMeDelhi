@@ -34,7 +34,13 @@ interface AdminPortalProps {
 
 export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToHome }) => {
   // Authentication states
-  const [token, setToken] = useState<string>(() => localStorage.getItem('smk_admin_token') || '');
+  const [token, setToken] = useState<string>(() => {
+    try {
+      return localStorage.getItem('smk_admin_token') || '';
+    } catch {
+      return '';
+    }
+  });
   const [username, setUsername] = useState('admin');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -87,7 +93,11 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToHome }) => {
       }
 
       setToken(data.token);
-      localStorage.setItem('smk_admin_token', data.token);
+      try {
+        localStorage.setItem('smk_admin_token', data.token);
+      } catch {
+        // ignore
+      }
     } catch (err: any) {
       setLoginError(err.message || "Invalid credentials. Please check your username and password.");
     } finally {
@@ -105,7 +115,11 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToHome }) => {
       // ignore
     }
     setToken('');
-    localStorage.removeItem('smk_admin_token');
+    try {
+      localStorage.removeItem('smk_admin_token');
+    } catch {
+      // ignore
+    }
   };
 
   const handleChangePassword = async (e: React.FormEvent) => {

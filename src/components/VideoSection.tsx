@@ -1,26 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Instagram, ExternalLink, Play } from 'lucide-react';
 import { AppDownloadBadges } from './AppDownloadBadges';
 
 export const VideoSection: React.FC = () => {
   const reelUrl = "https://www.instagram.com/reel/DdSyXmNiY__/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==";
   const embedUrl = "https://www.instagram.com/reel/DdSyXmNiY__/embed/";
-
-  useEffect(() => {
-    // Process Instagram embeds if script is available
-    if (typeof window !== 'undefined') {
-      const existingScript = document.getElementById('instagram-embed-script');
-      if (!existingScript) {
-        const script = document.createElement('script');
-        script.id = 'instagram-embed-script';
-        script.src = '//www.instagram.com/embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-      } else if ((window as unknown as { instgrm?: { Embeds: { process: () => void } } }).instgrm) {
-        (window as unknown as { instgrm: { Embeds: { process: () => void } } }).instgrm.Embeds.process();
-      }
-    }
-  }, []);
 
   return (
     <section id="video-demo" className="py-16 sm:py-20 bg-[#fafafa] border-b border-gray-100">

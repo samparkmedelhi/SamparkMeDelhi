@@ -17,7 +17,7 @@ import {
   PackageCheck
 } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../config/businessConfig';
-import { saveOrderToFirestore } from '../lib/firebase';
+import { submitCustomerOrder } from '../lib/orderService';
 
 interface OrderConfirmationData {
   orderId: string;
@@ -133,38 +133,34 @@ export const CartCheckoutPage: React.FC<{ initialProducts: Product[] }> = ({ ini
         customerNote: customerNote.trim() || undefined
       };
 
-      const res = await fetch('/api/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderPayload)
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to place order. Please try again.');
-      }
-
       // Save actual order to Firestore database before showing order success
-      await saveOrderToFirestore(data.order);
+      const result = await submitCustomerOrder(orderPayload);
 
-      // Order created successfully
+      // Order created and persisted successfully in Firestore
       const confirmed: OrderConfirmationData = {
-        orderId: data.order.id,
-        customerName: data.order.customerName,
-        mobile: data.order.mobile,
-        whatsapp: data.order.whatsapp,
-        address: data.order.address,
-        city: data.order.city,
-        pincode: data.order.pincode,
-        totalAmount: data.order.totalAmount,
-        items: data.order.items || orderPayload.items,
-        whatsappAdminUrl: data.whatsappAdminUrl || `https://wa.me/918447777266?text=Order%20${encodeURIComponent(data.order.id)}%20placed%20successfully.`
+        orderId: result.order.id,
+        customerName: result.order.customerName,
+        mobile: result.order.mobile,
+        whatsapp: result.order.whatsapp,
+        address: result.order.address,
+        city: result.order.city,
+        pincode: result.order.pincode,
+        totalAmount: result.order.totalAmount,
+        items: result.order.items || orderPayload.items,
+        whatsappAdminUrl: result.whatsappAdminUrl
       };
 
       setOrderConfirmation(confirmed);
       clearCart();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch {
+        try {
+          window.scrollTo(0, 0);
+        } catch {
+          // ignore
+        }
+      }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Network error. Please try again.';
       setErrorMessage(msg);

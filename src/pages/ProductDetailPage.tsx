@@ -56,7 +56,15 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   useEffect(() => {
     setSelectedImageIndex(0);
     setIsAdded(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch {
+      try {
+        window.scrollTo(0, 0);
+      } catch {
+        // ignore
+      }
+    }
   }, [product.id]);
 
   const handleBack = () => {
