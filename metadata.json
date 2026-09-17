@@ -1,0 +1,6 @@
+{
+  "name": "Sampark Delhi - Privacy-First Smart QR Contact & Vehicle Tags",
+  "description": "Official Sampark Delhi order portal for privacy-first Smart QR Parking Tags, NFC business cards, and video door tags with Cash on Delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

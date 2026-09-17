@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper to check if caller is an authenticated administrator
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    // Orders Collection Rules
+    match /orders/{orderId} {
+      // 1. Customers can create new orders with Cash on Delivery
+      // Cannot read other orders, cannot set status to COMPLETED/ACCEPTED, cannot modify existing orders
+      allow create: if 
+        // Order must have valid basic fields
+        request.resource.data.id is string &&
+        request.resource.data.customerName is string &&
+        request.resource.data.mobile is string &&
+        request.resource.data.totalAmount is number &&
+        // New customer order status must always be initial 'PENDING'
+        request.resource.data.status in ['PENDING', 'pending'];
+
+      // 2. Only authenticated administrators can read/list orders
+      allow read: if isAdmin();
+
+      // 3. Only authenticated administrators can update order status or notes
+      allow update, delete: if isAdmin();
+    }
+
+    // Deny all other access by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
