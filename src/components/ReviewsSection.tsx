@@ -5,19 +5,19 @@ export const ReviewsSection: React.FC = () => {
   const reviews = [
     {
       id: 1,
-      quote: "No more handwritten phone numbers on the dashboard. People scan the tag and call without seeing my number.",
+      quote: "Ab dashboard par haath se number likhne ki koi zaroorat nahi. Log seedha tag scan karke bina mera number dekhe call kar lete hain.",
       author: "Verified Driver",
       city: "New Delhi"
     },
     {
       id: 2,
-      quote: "Setup took 2 minutes. The tag arrived in clean packaging and the QR scan activates instantly.",
+      quote: "Setup karne mein sirf 2 minute lage. Tag ki packaging badhiya thi aur QR scan karte hi turant activate ho gaya.",
       author: "Car Owner",
       city: "NCR"
     },
     {
       id: 3,
-      quote: "In tight parking slots, neighbors can ping me politely without having my mobile number saved permanently.",
+      quote: "Tight parking mein padosi aasaani se call kar lete hain bina mera personal mobile number permanently save kiye.",
       author: "Vehicle Owner",
       city: "Delhi"
     }
@@ -29,10 +29,10 @@ export const ReviewsSection: React.FC = () => {
         
         <div className="text-left max-w-xl mb-10">
           <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">
-            TESTIMONIALS
+            CUSTOMER REVIEWS
           </p>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-black tracking-tight">
-            Loved by drivers across Delhi NCR
+            Delhi NCR ke drivers ka bharosa
           </h2>
         </div>
 

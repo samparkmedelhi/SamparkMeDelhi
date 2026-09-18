@@ -29,6 +29,7 @@ import { CartCheckoutPage } from './pages/CartCheckoutPage';
 import { AdminPage } from './pages/AdminPage';
 import { ShopPage } from './pages/ShopPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
+import { DistributorshipPage } from './pages/DistributorshipPage';
 
 function MainApp() {
   const { currentPath, navigate } = useRouter();
@@ -118,6 +119,7 @@ function MainApp() {
                 products={products}
                 onSelectProduct={(p) => navigate(`/shop/${p.id}`)}
                 hideBottomStrip={true}
+                isHomepage={true}
               />
             </section>
 
@@ -166,6 +168,11 @@ function MainApp() {
         {/* Route: Dedicated Contact Hub Page */}
         {currentPath === '/contact' && (
           <ContactPage />
+        )}
+
+        {/* Route: Dedicated Distributorship Page */}
+        {currentPath === '/distributorship' && (
+          <DistributorshipPage />
         )}
 
         {/* Route: Dedicated Cart & Multi-Item Checkout Page */}

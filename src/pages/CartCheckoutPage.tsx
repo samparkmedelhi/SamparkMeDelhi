@@ -282,7 +282,7 @@ export const CartCheckoutPage: React.FC<{ initialProducts: Product[] }> = ({ ini
               onClick={handleAddDefaultFlagship}
               className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#FFE600] hover:bg-[#F5D800] text-black font-bold text-sm shadow-xs transition-all cursor-pointer"
             >
-              Add Flagship Car Tag · ₹399
+              Add Flagship Car Tag · ₹499
             </button>
             <button
               onClick={() => navigate('/products')}

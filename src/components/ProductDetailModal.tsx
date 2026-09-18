@@ -137,7 +137,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 src={activeImage}
                 alt={product.name}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-contain object-center transition-all duration-300"
+                className="w-full h-full object-contain object-center select-none"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (product.id === 'car-sampark-tag-pack-2' && !target.src.includes('/images/car-sampark-tag-pack-2.png')) {
+                    target.src = '/images/car-sampark-tag-pack-2.png';
+                  }
+                }}
               />
             </div>
 

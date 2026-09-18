@@ -76,6 +76,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onQuickBuy }) => {
           >
             Contact &amp; Hub
           </button>
+          <button
+            onClick={() => handleNav('/distributorship')}
+            className={`transition-colors cursor-pointer ${currentPath === '/distributorship' ? 'text-black font-bold' : 'hover:text-black'}`}
+          >
+            Distributorship
+          </button>
           <a
             href="/sampark-official-brochure.pdf"
             download="Sampark-Car-Tag-Official-Brochure.pdf"
@@ -108,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onQuickBuy }) => {
             className="px-5 py-2.5 rounded-full bg-[#FFE600] hover:bg-[#F5D800] text-black font-bold text-sm transition-all shadow-xs hover:shadow hover:-translate-y-0.5 active:translate-y-0 cursor-pointer flex items-center gap-1.5"
           >
             <span>Shop Tags</span>
-            <span className="text-xs opacity-75">· from ₹399</span>
+            <span className="text-xs opacity-75">· from ₹499</span>
           </button>
         </div>
 
@@ -181,6 +187,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onQuickBuy }) => {
               <span>Contact &amp; Hub (Narela, Delhi)</span>
               <ArrowRight className="w-4 h-4 text-gray-400" />
             </button>
+            <button
+              onClick={() => handleNav('/distributorship')}
+              className={`text-left py-2.5 border-b border-gray-100 flex items-center justify-between ${currentPath === '/distributorship' ? 'font-bold text-black' : ''}`}
+            >
+              <span>Distributorship</span>
+              <ArrowRight className="w-4 h-4 text-gray-400" />
+            </button>
             <a
               href="/sampark-official-brochure.pdf"
               download="Sampark-Car-Tag-Official-Brochure.pdf"
@@ -219,7 +232,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onQuickBuy }) => {
               }}
               className="w-full py-3 text-center text-sm font-bold rounded-full bg-[#FFE600] text-black shadow-xs flex items-center justify-center gap-2 cursor-pointer"
             >
-              <span>Shop All Tags · From ₹399</span>
+              <span>Shop All Tags · From ₹499</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

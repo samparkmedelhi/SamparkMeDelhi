@@ -13,13 +13,13 @@ export const LocationSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-left max-w-2xl mb-12">
           <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">
-            DELHI OPERATIONS &amp; HUB
+            DELHI OPERATIONS AUR HUB
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
             Sampark Delhi Hub
           </h2>
           <p className="mt-2 text-base text-gray-600">
-            Official Delhi office and dispatch center in Narela, Delhi. Contact us for customer support, dispatch inquiries, and fleet partnerships.
+            Narela, Delhi mein hamara official office aur dispatch center. Customer support, dispatch inquiry aur bulk orders ke liye humse connect karein.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export const LocationSection: React.FC = () => {
                     {narelaAddress}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    North Delhi fulfillment and pickup hub
+                    North Delhi fulfillment aur pickup hub
                   </p>
                 </div>
               </div>
@@ -51,7 +51,7 @@ export const LocationSection: React.FC = () => {
                   <Phone className="w-5 h-5 text-black" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xs uppercase tracking-wider text-gray-500">Phone &amp; WhatsApp</h3>
+                  <h3 className="font-bold text-xs uppercase tracking-wider text-gray-500">Phone aur WhatsApp</h3>
                   <a
                     href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
                     className="text-base font-extrabold text-black hover:underline block mt-0.5"
@@ -59,7 +59,7 @@ export const LocationSection: React.FC = () => {
                     {BUSINESS_CONFIG.phone}
                   </a>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Live chat support 7 days a week
+                    Live chat support hafte ke 7 din
                   </p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export const LocationSection: React.FC = () => {
                     {BUSINESS_CONFIG.email}
                   </a>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Official business &amp; corporate inquiries
+                    Official business aur corporate inquiries
                   </p>
                 </div>
               </div>
@@ -89,12 +89,12 @@ export const LocationSection: React.FC = () => {
                   <Clock className="w-5 h-5 text-black" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xs uppercase tracking-wider text-gray-500">Operations Schedule</h3>
+                  <h3 className="font-bold text-xs uppercase tracking-wider text-gray-500">Office Timings</h3>
                   <p className="text-sm font-semibold text-black mt-0.5">
-                    Mon - Sat: 9:30 AM – 7:30 PM IST
+                    Somwar - Shanivar: 9:30 AM – 7:30 PM IST
                   </p>
                   <p className="text-xs text-emerald-700 font-medium mt-0.5">
-                    Online dispatch &amp; order booking active 24/7
+                    Online dispatch aur booking 24/7 active hai
                   </p>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export const LocationSection: React.FC = () => {
                 className="w-full py-3 px-4 rounded-full bg-[#FFE600] hover:bg-[#F5D800] text-black font-bold text-xs sm:text-sm transition-all shadow-xs flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-4 h-4 text-black" />
-                <span>Message on WhatsApp (+91 84477 77266)</span>
+                <span>WhatsApp par message karein (+91 84477 77266)</span>
               </a>
 
               <a
@@ -120,7 +120,7 @@ export const LocationSection: React.FC = () => {
                 className="w-full py-2.5 px-4 rounded-full bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 font-semibold text-xs transition-colors flex items-center justify-center gap-2"
               >
                 <MapPin className="w-3.5 h-3.5 text-black" />
-                <span>Open Narela Location in Google Maps</span>
+                <span>Google Maps mein Narela location kholein</span>
                 <ExternalLink className="w-3 h-3 text-gray-400" />
               </a>
             </div>

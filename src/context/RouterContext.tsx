@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type PageRoute = '/' | '/shop' | '/products' | '/cart' | '/checkout' | '/shark-tank' | '/contact' | '/admin';
+export type PageRoute = '/' | '/shop' | '/products' | '/cart' | '/checkout' | '/shark-tank' | '/contact' | '/distributorship' | '/admin';
 
 interface RouterContextType {
   currentPath: string;

@@ -125,6 +125,11 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
+                <button onClick={() => navigate('/distributorship')} className="hover:text-white transition-colors text-left cursor-pointer">
+                  Distributorship
+                </button>
+              </li>
+              <li>
                 <button onClick={() => navigate('/cart')} className="hover:text-white transition-colors text-left cursor-pointer text-[#FFE600]">
                   Cart &amp; Checkout
                 </button>
@@ -161,7 +166,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button onClick={() => navigate('/shop/car-bike-sampark-tag')} className="hover:text-white transition-colors text-left cursor-pointer">
-                  (Pack of 1) Car Tag · ₹399
+                  (Pack of 1) Car Tag · ₹499
                 </button>
               </li>
               <li>

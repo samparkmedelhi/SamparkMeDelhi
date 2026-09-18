@@ -23,9 +23,15 @@ interface ShopPageProps {
   products: Product[];
   onSelectProduct: (product: Product) => void;
   hideBottomStrip?: boolean;
+  isHomepage?: boolean;
 }
 
-export const ShopPage: React.FC<ShopPageProps> = ({ products, onSelectProduct, hideBottomStrip = false }) => {
+export const ShopPage: React.FC<ShopPageProps> = ({
+  products,
+  onSelectProduct,
+  hideBottomStrip = false,
+  isHomepage = false,
+}) => {
   const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>('INR');
 
   const formatPrice = (amountInInr: number) => {
@@ -55,19 +61,21 @@ export const ShopPage: React.FC<ShopPageProps> = ({ products, onSelectProduct, h
         {/* Header section matching Image 1 */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <p className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-neutral-500 mb-2">
-            SHOP
+            {isHomepage ? 'TAGS KHAREEDO' : 'SHOP'}
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-neutral-900 leading-tight">
-            Pick your Sampark tag.
+            {isHomepage ? 'Apna Sampark tag chuno.' : 'Pick your Sampark tag.'}
           </h1>
           <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed">
-            One-time buy, free services for life. Free delivery and cash on delivery on every order.
+            {isHomepage
+              ? 'Ek baar khareedo, lifetime free services pao. Har order par free delivery aur cash on delivery available.'
+              : 'One-time buy, free services for life. Free delivery and cash on delivery on every order.'}
           </p>
 
           {/* Currency Selector matching screenshot */}
           <div className="mt-6 inline-flex flex-col items-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-500 mb-1.5">
-              CHANGE CURRENCY
+              {isHomepage ? 'CURRENCY CHANGE KAREIN' : 'CHANGE CURRENCY'}
             </span>
             <div className="relative inline-block">
               <select
@@ -111,13 +119,20 @@ export const ShopPage: React.FC<ShopPageProps> = ({ products, onSelectProduct, h
 
                 <div>
                   {/* Product Thumbnail Container */}
-                  <div className="w-full aspect-square rounded-2xl bg-white border border-neutral-100 flex items-center justify-center p-4 mb-5 overflow-hidden">
+                  <div className="w-full aspect-square rounded-2xl bg-white border border-neutral-100 flex items-center justify-center p-3 sm:p-4 mb-5 overflow-hidden">
                     <img
+                      id={`shop-product-img-${product.id}`}
                       src={product.image}
                       alt={product.name}
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full max-w-full max-h-full object-contain object-center select-none"
                       loading="lazy"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (product.id === 'car-sampark-tag-pack-2' && !target.src.includes('/images/car-sampark-tag-pack-2.png')) {
+                          target.src = '/images/car-sampark-tag-pack-2.png';
+                        }
+                      }}
                     />
                   </div>
 
@@ -161,7 +176,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({ products, onSelectProduct, h
                     className="px-5 py-2.5 rounded-full bg-[#FFE600] hover:bg-[#F5D800] text-black font-extrabold text-xs sm:text-sm transition-all shadow-xs hover:shadow flex items-center gap-1 hover:gap-1.5 cursor-pointer active:scale-95"
                     aria-label={`View details for ${product.name}`}
                   >
-                    <span>View</span>
+                    <span>{isHomepage ? 'Dekho' : 'View'}</span>
                     <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
                   </button>
                 </div>

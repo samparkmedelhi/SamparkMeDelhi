@@ -79,9 +79,9 @@ const DEFAULT_PRODUCTS: ProductItem[] = [
       "Vehicle docs behind OTP",
       "Waterproof · lifetime free"
     ],
-    image: "https://i.ibb.co/7dKMmXRw/image.png",
+    image: "https://i.ibb.co/Z9rWkjR/image.png",
     gallery: [
-      "https://i.ibb.co/7dKMmXRw/image.png"
+      "https://i.ibb.co/Z9rWkjR/image.png"
     ],
     isActive: true,
     category: "Automotive"
@@ -113,8 +113,8 @@ const DEFAULT_PRODUCTS: ProductItem[] = [
     rating: 4.4,
     shortDescription: "We park our vehicles every day in public places, BUT have we ever thought if the parked vehicle is creating any issues and if it does how someone can reach us?",
     detailedDescription: "We park our vehicles every day in public places, BUT have we ever thought if the parked vehicle is creating any issues and if it does how someone can reach us? The single-pack Sampark car tag is perfect for individual vehicle owners. High-contrast QR tag mounts cleanly on your windshield. Protects your personal privacy while allowing security guards, traffic marshals, and fellow drivers to contact you instantly.",
-    price: 399,
-    originalPrice: 499,
+    price: 499,
+    originalPrice: 599,
     features: [
       "Masked Calling: Callers never see your phone number",
       "Instant WhatsApp & SMS alerts when parked wrongly",
@@ -157,9 +157,9 @@ function ensureDatabase(): DatabaseSchema {
           pincode: "110085",
           productId: "car-bike-sampark-tag",
           productName: "Car & Bike Sampark Smart QR Tag",
-          productPrice: 399,
+          productPrice: 499,
           quantity: 2,
-          totalAmount: 798,
+          totalAmount: 998,
           customerNote: "Please deliver before 6 PM if possible.",
           status: "ACCEPTED",
           statusNotes: "Order verified via phone call. Dispatched for delivery.",

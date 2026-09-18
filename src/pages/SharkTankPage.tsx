@@ -152,7 +152,7 @@ export const SharkTankPage: React.FC<{ products: Product[] }> = ({ products }) =
 
           <div className="shrink-0 space-y-3 w-full sm:w-auto text-center sm:text-right">
             <div className="text-2xl font-extrabold text-white">
-              ₹399 <span className="text-sm font-normal text-gray-400 line-through">₹799</span>
+              ₹499 <span className="text-sm font-normal text-gray-400 line-through">₹799</span>
             </div>
             <button
               onClick={handleOrderSharkTankTag}

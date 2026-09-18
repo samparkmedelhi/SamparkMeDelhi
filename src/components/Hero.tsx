@@ -32,18 +32,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrderModal }) => {
             {/* Black Pill with Gold Star */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black text-white text-xs font-semibold shadow-xs">
               <span className="text-[#FFE600] font-bold">★</span>
-              <span>As seen on Shark Tank India · Season 5</span>
+              <span>Shark Tank India · Season 5 par dekha gaya</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold text-black tracking-tight leading-[1.08]">
-              Let anyone reach you —<br />
-              without sharing your number.
+              Ab koi bhi aapse contact kar sakta hai —<br />
+              bina aapka number jaane!
             </h1>
 
             {/* Sub-headline (2 concise sentences) */}
             <p className="text-lg text-gray-600 font-normal leading-relaxed max-w-xl">
-              Stick the Sampark tag on your car or bike. If there&apos;s ever a problem, people scan it and reach you on a masked call. Your number stays completely private.
+              Apni car ya bike par Sampark tag lagao. Agar kabhi koi dikkat ho, toh log isko scan karke aapse masked call par baat kar sakte hain. Aapka number poori tarah private rehta hai.
             </p>
 
             {/* Primary Action Row */}
@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrderModal }) => {
                 onClick={onOpenOrderModal}
                 className="px-8 py-4 rounded-full bg-[#FFE600] hover:bg-[#F5D800] text-black font-extrabold text-base transition-all shadow-sm hover:shadow hover:-translate-y-0.5 active:translate-y-0 cursor-pointer flex items-center gap-2"
               >
-                <span>Shop tags · from ₹399</span>
+                <span>Tags khareedo · from ₹499</span>
                 <ArrowRight className="w-4 h-4 text-black" />
               </button>
 
@@ -60,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrderModal }) => {
                 onClick={scrollToHow}
                 className="text-black font-semibold text-base hover:underline transition-all flex items-center gap-1.5 px-2 py-2 cursor-pointer"
               >
-                <span>See how it works</span>
+                <span>Dekho ye kaise kaam karta hai</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

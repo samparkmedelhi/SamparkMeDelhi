@@ -35,7 +35,7 @@ export const VideoSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="px-3 py-1 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-bold text-[11px] inline-flex items-center gap-1 transition-colors"
                 >
-                  <span>Open Reel</span>
+                  <span>Reel Kholein</span>
                   <ExternalLink className="w-3 h-3 text-gray-500" />
                 </a>
               </div>
@@ -56,7 +56,7 @@ export const VideoSection: React.FC = () => {
               <div className="mt-3 px-1 pt-1 flex items-center justify-between text-xs">
                 <span className="flex items-center gap-1.5 text-gray-700 font-medium text-[11px]">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Tap video to play with audio
+                  Audio ke saath dekhne ke liye tap karein
                 </span>
                 <a
                   href={reelUrl}
@@ -64,7 +64,7 @@ export const VideoSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-pink-600 hover:text-pink-700 font-bold text-[11px] inline-flex items-center gap-1"
                 >
-                  <span>Watch on Instagram</span>
+                  <span>Instagram par dekhein</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
@@ -75,13 +75,13 @@ export const VideoSection: React.FC = () => {
           {/* Right Column: Copy & Store Downloads */}
           <div className="lg:col-span-6 space-y-5 text-left">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
-              SEE IT IN ACTION
+              LIVE DEKHO KAISE KAAM KARTA HAI
             </p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight leading-tight">
-              Watch how Sampark keeps you reachable — privately.
+              Dekho kaise Sampark aapko reachable rakhta hai — poori privacy ke saath.
             </h2>
             <p className="text-gray-600 text-base leading-relaxed">
-              From scan to masked call in seconds. Watch our official demonstration reel to see how any passerby or neighbor can connect with you safely without ever revealing your personal mobile digits.
+              Scan karne se masked call tak sirf kuch seconds mein. Hamara official demonstration reel dekhiye aur jaaniye kaise koi bhi passerby ya padosi aapse bina mobile number jaane aasaani se connect ho sakta hai.
             </p>
 
             <div className="pt-2">

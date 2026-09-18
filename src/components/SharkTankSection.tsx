@@ -17,13 +17,13 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
         {/* Section Header */}
         <div className="text-left max-w-3xl mb-10">
           <span className="text-[11px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 px-3 py-1 rounded-full inline-block mb-3">
-            ★ NATIONAL TELEVISION COMMENDATION
+            ★ NATIONAL TELEVISION PAR DEKHA GAYA
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight leading-tight">
             Shark Tank India · Season 5
           </h2>
           <p className="mt-3 text-base sm:text-lg text-gray-600 leading-relaxed">
-            Watch our complete pitch on Shark Tank India. See how Sampark is solving vehicle parking disputes, road accidents, and phone privacy for millions of Indian drivers.
+            Shark Tank India par hamari poori pitch dekhein. Dekhiye kaise Sampark car parking ke jhagde, road accidents aur phone privacy ki samasya ko aasaani se solve kar raha hai.
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
                 <div className="w-full h-full flex flex-col items-center justify-center bg-neutral-900 text-white p-6 text-center">
                   <AlertCircle className="w-10 h-10 text-[#FFE600] mb-3" />
                   <p className="text-sm font-semibold mb-3">
-                    Video player restricted by browser settings.
+                    Browser settings ki wajah se video player open nahi ho raha.
                   </p>
                   <a
                     href={youtubeUrl}
@@ -54,7 +54,7 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
                     className="px-5 py-2.5 rounded-full bg-[#FFE600] text-black font-bold text-xs inline-flex items-center gap-2 hover:bg-[#F5D800]"
                   >
                     <Play className="w-4 h-4 fill-black" />
-                    <span>Watch Directly on YouTube</span>
+                    <span>Direct YouTube Par Dekho</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -65,7 +65,7 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
             <div className="mt-3 flex items-center justify-between text-xs text-gray-500 px-2">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-                <span>Full Uncut Episode Pitch</span>
+                <span>Poora Uncut Episode Pitch</span>
               </span>
               <a
                 href={youtubeUrl}
@@ -73,7 +73,7 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
                 rel="noopener noreferrer"
                 className="hover:text-black font-semibold inline-flex items-center gap-1 transition-colors text-gray-700"
               >
-                <span>Open in YouTube app</span>
+                <span>YouTube app mein open karein</span>
                 <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
               </a>
             </div>
@@ -87,16 +87,16 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
                   100% Privacy Protection
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Callers connect to your phone without seeing your 10-digit number. Avoid spam, harassment, and identity leaks.
+                  Callers aapke phone se connect hote hain bina aapka 10-digit number dekhe. Spam, harassment aur privacy leaks se bachein.
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-[#fafafa] border border-gray-200">
                 <h3 className="font-extrabold text-sm text-black mb-1">
-                  Zero App Required for Bystanders
+                  Bystanders ke liye kisi app ki zaroorat nahi
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Anyone who scans the tag with their phone camera can immediately initiate a call or send a WhatsApp message.
+                  Koi bhi phone camera se tag scan karke turant call mila sakta hai ya WhatsApp message bhej sakta hai.
                 </p>
               </div>
 
@@ -105,7 +105,7 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
                   Emergency Medical Contact
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  In case of an on-road accident, rescuers can alert your designated emergency family contacts instantly.
+                  Road par kisi accident ya emergency ke waqt madad karne wale aapke family contacts ko turant alert kar sakte hain.
                 </p>
               </div>
             </div>
@@ -116,7 +116,7 @@ export const SharkTankSection: React.FC<SharkTankSectionProps> = ({ onOpenOrderM
                   onClick={onOpenOrderModal}
                   className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#FFE600] hover:bg-[#F5D800] text-black font-extrabold text-sm transition-all shadow-xs hover:shadow cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>Order Shark Tank Tag · ₹399</span>
+                  <span>Shark Tank Tag Order Karein · ₹499</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
