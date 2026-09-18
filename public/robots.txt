@@ -1,0 +1,18 @@
+# Robots.txt for Sampark Delhi
+# Website: https://samparkmedelhi.com/
+
+User-agent: *
+Allow: /
+Allow: /shop
+Allow: /shark-tank
+Allow: /contact
+Allow: /distributorship
+
+# Exclude private, admin, API, and cart/checkout pages from crawling
+Disallow: /admin
+Disallow: /cart
+Disallow: /checkout
+Disallow: /api/
+
+# Canonical XML Sitemap
+Sitemap: https://samparkmedelhi.com/sitemap.xml

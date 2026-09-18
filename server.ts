@@ -669,6 +669,27 @@ async function startServer() {
     res.json({ success: true, message: "Product deactivated." });
   });
 
+  // Dedicated Sitemap and Robots Routes
+  app.get('/sitemap.xml', (_req: Request, res: Response) => {
+    const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+    if (fs.existsSync(sitemapPath)) {
+      res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+      res.sendFile(sitemapPath);
+    } else {
+      res.status(404).send('Sitemap not found');
+    }
+  });
+
+  app.get('/robots.txt', (_req: Request, res: Response) => {
+    const robotsPath = path.join(process.cwd(), 'public', 'robots.txt');
+    if (fs.existsSync(robotsPath)) {
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+      res.sendFile(robotsPath);
+    } else {
+      res.status(404).send('robots.txt not found');
+    }
+  });
+
   // Dedicated Brochure Download Route
   app.get(['/api/brochure', '/sampark-official-brochure.pdf', '/brochure.pdf', '/download-brochure'], (_req: Request, res: Response) => {
     const brochurePath = path.join(process.cwd(), 'public', 'sampark-official-brochure.pdf');
