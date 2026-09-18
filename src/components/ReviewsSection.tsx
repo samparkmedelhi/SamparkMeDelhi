@@ -6,19 +6,19 @@ export const ReviewsSection: React.FC = () => {
     {
       id: 1,
       quote: "Ab dashboard par haath se number likhne ki koi zaroorat nahi. Log seedha tag scan karke bina mera number dekhe call kar lete hain.",
-      author: "Verified Driver",
+      author: "Pushpa Bhargav",
       city: "New Delhi"
     },
     {
       id: 2,
       quote: "Setup karne mein sirf 2 minute lage. Tag ki packaging badhiya thi aur QR scan karte hi turant activate ho gaya.",
-      author: "Car Owner",
+      author: "Suresh Khatri",
       city: "NCR"
     },
     {
       id: 3,
       quote: "Tight parking mein padosi aasaani se call kar lete hain bina mera personal mobile number permanently save kiye.",
-      author: "Vehicle Owner",
+      author: "Kunal Solanki",
       city: "Delhi"
     }
   ];
